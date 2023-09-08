@@ -1,0 +1,209 @@
+#diceRoller {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.diceArea {
+  margin: 10px;
+  text-align: center;
+}
+
+button {
+  font-size: 16px;
+  padding: 6px 12px;
+  border-radius: 4px;
+}
+
+p {
+  font-size: 20px;
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+
+
+
+
+
+
+
+
+/* DO NOT UPDATE ( OLD NOTES )
+
+HTML:
+```html
+<!DOCTYPE html>
+<html>
+<head>
+  <title>DnDc</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+  <div id="game">
+    <div id="diceRoller">
+      <div class="diceArea">
+        <button onclick="rollD20()">Roll D20</button>
+        <p id="d20Result"></p>
+      </div>
+  
+      <div class="diceArea">
+        <button onclick="rollD12()">Roll D12</button>
+        <p id="d12Result"></p>
+      </div>
+  
+      <div class="diceArea">
+        <button onclick="rollD10()">Roll D10</button>
+        <p id="d10Result"></p>
+      </div>
+  
+      <div class="diceArea">
+        <button onclick="rollD8()">Roll D8</button>
+        <p id="d8Result"></p>
+      </div>
+  
+      <div class="diceArea">
+        <button onclick="rollD6()">Roll D6</button>
+        <p id="d6Result"></p>
+      </div>
+  
+      <div class="diceArea">
+        <button onclick="rollD4()">Roll D4</button>
+        <p id="d4Result"></p>
+      </div>
+    </div>
+  
+    <div id="adventureArea">
+      <h2>Adventure Game</h2>
+      <p id="gameStatus">Welcome to the adventure game!</p>
+      <button onclick="startAdventure()">Start</button>
+    </div>
+  </div>
+  
+  <script src="script.js"></script>
+</body>
+</html>
+```
+
+CSS (style.css):
+```css
+#diceRoller {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.diceArea {
+  margin: 10px;
+  text-align: center;
+}
+
+button {
+  font-size: 16px;
+  padding: 6px 12px;
+  border-radius: 4px;
+}
+
+p {
+  font-size: 20px;
+  margin-top: 10px;
+  font-weight: bold;
+}
+```
+
+JavaScript (script.js):
+```javascript
+//--- D20 ---//
+function rollD20() {
+  var d20Result = document.getElementById("d20Result");
+  var d20 = Math.floor(Math.random() * 20 + 1);
+  d20Result.innerHTML = d20;
+};
+
+//--- D12 ---//
+function rollD12() {
+  var d12Result = document.getElementById("d12Result");
+  var d12 = Math.floor(Math.random() * 12 + 1);
+  d12Result.innerHTML = d12;
+};
+
+//--- D10 ---//
+function rollD10() {
+  var d10Result = document.getElementById("d10Result");
+  var d10 = Math.floor(Math.random() * 10 + 1);
+  d10Result.innerHTML = d10;
+};
+
+//--- D8 ---//
+function rollD8() {
+  var d8Result = document.getElementById("d8Result");
+  var d8 = Math.floor(Math.random() * 8 + 1);
+  d8Result.innerHTML = d8;
+};
+
+//--- D6 ---//
+function rollD6() {
+  var d6Result = document.getElementById("d6Result");
+  var d6 = Math.floor(Math.random() * 6 + 1);
+  d6Result.innerHTML = d6;
+};
+
+//--- D4 ---//
+function rollD4() {
+  var d4Result = document.getElementById("d4Result");
+  var d4 = Math.floor(Math.random() * 4 + 1);
+  d4Result.innerHTML = d4;
+};
+
+// added
+
+var gameStatus = document.getElementById("gameStatus");
+var adventureArea = document.getElementById("adventureArea");
+
+function startAdventure() {
+  gameStatus.innerHTML = "You are starting your adventure...";
+  
+  // Simulate game progression
+  setTimeout(function() {
+    gameStatus.innerHTML = "You encounter a hungry dragon!";
+    adventureArea.innerHTML += '<button onclick="fightDragon()">Fight</button>';
+    adventureArea.innerHTML += '<button onclick="runAway()">Run Away</button>';
+  }, 2000);
+}
+
+function fightDragon() {
+  gameStatus.innerHTML = "You engage in a fierce battle with the dragon...";
+  
+  // Simulate battle
+  setTimeout(function() {
+    var battleResult = Math.random();
+    if (battleResult < 0.5) {
+      gameStatus.innerHTML = "You defeated the dragon! Congratulations!";
+    } else {
+      gameStatus.innerHTML = "The dragon overpowers you... You lose!";
+    }
+    adventureArea.innerHTML = '<button onclick="startAdventure()">Restart</button>';
+  }, 2000);
+}
+
+function runAway() {
+  gameStatus.innerHTML = "You try to escape from the dragon...";
+  
+  // Simulate escape attempt
+  setTimeout(function() {
+    var escapeResult = Math.random();
+    if (escapeResult < 0.8) {
+      gameStatus.innerHTML = "You successfully escape from the dragon! Well done!";
+    } else {
+      gameStatus.innerHTML = "The dragon catches up to you... You lose!";
+    }
+    adventureArea.innerHTML = '<button onclick="startAdventure()">Restart</button>';
+  }, 2000);
+}
+```
+Ask ai a question here
+ 
+-->
+
+
+*/
