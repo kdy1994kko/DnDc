@@ -1,3 +1,131 @@
+/* DO NOT UPDATE ( OLD NOTES ) */
+
+
+<!-- 
+
+  // Disable all the buttons after five rolls
+    var buttons = document.getElementsByTagName("button");
+    for (var i = 0; i < buttons.length; i++) {
+      buttons[i].disabled = true;
+    } 
+  -->
+
+
+HTML:
+```html
+<!DOCTYPE html>
+<html>
+<head>
+  <title>DnDc</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+  <h1>DnDc</h1>
+  <div id="game">
+    <div id="diceRoller">
+      <div class="diceArea">
+        <button class="d20" onclick="rollD20()">Roll D20</button>
+        <p id="d20Result"></p>
+      </div>
+
+      <div class="diceArea">
+        <button class="d12" onclick="rollD12()" disabled>Roll D12</button>
+        <p id="d12Result"></p>
+      </div>
+  
+      <div class="diceArea">
+        <button class="d10" onclick="rollD10()" disabled>Roll D10</button>
+        <p id="d10Result"></p>
+      </div>
+  
+      <div class="diceArea">
+        <button class="d8" onclick="rollD8()" disabled>Roll D8</button>
+        <p id="d8Result"></p>
+      </div>
+  
+      <div class="diceArea">
+        <button class="d6" onclick="rollD6()" disabled>Roll D6</button>
+        <p id="d6Result"></p>
+      </div>
+  
+      <div class="diceArea">
+        <button class="d4" onclick="rollD4()" disabled>Roll D4</button>
+        <p id="d4Result"></p>
+      </div>
+    </div>
+ 
+    <div id="actionsArea">
+      <p id="queenOne">Roll D20 (1x) to Select Queen #1</p>
+      <button class="Q1" onclick="attackActions()" disabled>Attack</button>
+      <button class="Q1" onclick="defendActions()" disabled>Defend</button>
+      <button class="Q1" onclick="healActions()" disabled>Heal</button>
+    </div>
+    <div id="actionsArea">
+      <p id="queenTwo">Roll D20 (2x) to Select Queen #2</p>
+      <button class="Q2" onclick="attackActions()" disabled>Attack</button>
+      <button class="Q2" onclick="defendActions()" disabled>Defend</button>
+      <button class="Q2" onclick="healActions()" disabled>Heal</button>
+    </div>
+    <div id="actionsArea">
+      <p id="queenThree">Roll D20 (3x) to Select Queen #3</p>
+      <button class="Q3" onclick="attackActions()" disabled>Attack</button>
+      <button class="Q3" onclick="defendActions()" disabled>Defend</button>
+      <button class="Q3" onclick="healActions()" disabled>Heal</button>
+    </div>
+    <div id="actionsArea">
+      <p id="queenFour">Roll D20 (4x) to Select Queen #4</p>
+      <button class="Q4" onclick="attackActions()" disabled>Attack</button>
+      <button class="Q4" onclick="defendActions()" disabled>Defend</button>
+      <button class="Q4" onclick="healActions()" disabled>Heal</button>
+    </div>
+    <div id="actionsArea">
+      <p id="queenFive"> Roll D20 (5x) to Select Queen #5</p>
+      <button class="Q5" onclick="attackActions()" disabled>Attack</button>
+      <button class="Q5" onclick="defendActions()" disabled>Defend</button>
+      <button class="Q5" onclick="healActions()" disabled>Heal</button>
+    </div>
+    
+    <div id="restartButtonArea">
+      <button id="restartButton" onclick="restartGame()">Restart</button>
+    </div>
+    <div id="continueButtonArea">
+      <button id="continueButton" onclick="continueGame()" disabled>Continue To Fight</button>
+    </div>
+  </div>
+  
+  <script src="script.js"></script>
+</body>
+</html>
+```
+
+CSS (style.css):
+```css
+#diceRoller {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.diceArea {
+  margin: 10px;
+  text-align: center;
+}
+
+button {
+  font-size: 16px;
+  padding: 6px 12px;
+  border-radius: 4px;
+}
+
+p {
+  font-size: 20px;
+  margin-top: 10px;
+  font-weight: bold;
+}
+```
+
+JavaScript (script.js):
+```javascript
 //--- D20 ---//
 var d20Count = 0; // Counter for D20 rolls
 var gameStatuses = []; // Array to store game statuses
@@ -194,17 +322,7 @@ function rollD4() {
   d4Result.innerHTML = d4;
 };
 
+```
 
-//--- To Do List ---//
-
-// add a 50 point health bar
-// make D12 activate FIGHT, DEFEND, HEAL Buttons
-// give each queen type their own dice type & abilities
-// disable a dead queen
-// determine TRUE queen winner
-
-
-// Done == Restart Button
-// Done == Continue Button
-// Done == Disable Buttons 
-// Done == Add A Health Bar
+where can i add 
+ 
