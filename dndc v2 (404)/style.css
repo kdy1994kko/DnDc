@@ -31,6 +31,19 @@ p {
 
 /* DO NOT UPDATE ( OLD NOTES )
 
+
+<!-- 
+
+  // Disable all the buttons after five rolls
+    var buttons = document.getElementsByTagName("button");
+    for (var i = 0; i < buttons.length; i++) {
+      buttons[i].disabled = true;
+    } 
+  -->
+
+
+<!-- ALWAYS UPDATE ( NEW NOTES )
+
 HTML:
 ```html
 <!DOCTYPE html>
@@ -40,43 +53,76 @@ HTML:
   <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
+  <h1>DnDc</h1>
   <div id="game">
     <div id="diceRoller">
       <div class="diceArea">
-        <button onclick="rollD20()">Roll D20</button>
+        <button class="d20" onclick="rollD20()">Roll D20</button>
         <p id="d20Result"></p>
       </div>
-  
+
       <div class="diceArea">
-        <button onclick="rollD12()">Roll D12</button>
+        <button class="d12" onclick="rollD12()" disabled>Roll D12</button>
         <p id="d12Result"></p>
       </div>
   
       <div class="diceArea">
-        <button onclick="rollD10()">Roll D10</button>
+        <button class="d10" onclick="rollD10()" disabled>Roll D10</button>
         <p id="d10Result"></p>
       </div>
   
       <div class="diceArea">
-        <button onclick="rollD8()">Roll D8</button>
+        <button class="d8" onclick="rollD8()" disabled>Roll D8</button>
         <p id="d8Result"></p>
       </div>
   
       <div class="diceArea">
-        <button onclick="rollD6()">Roll D6</button>
+        <button class="d6" onclick="rollD6()" disabled>Roll D6</button>
         <p id="d6Result"></p>
       </div>
   
       <div class="diceArea">
-        <button onclick="rollD4()">Roll D4</button>
+        <button class="d4" onclick="rollD4()" disabled>Roll D4</button>
         <p id="d4Result"></p>
       </div>
     </div>
-  
-    <div id="adventureArea">
-      <h2>Adventure Game</h2>
-      <p id="gameStatus">Welcome to the adventure game!</p>
-      <button onclick="startAdventure()">Start</button>
+ 
+    <div id="actionsArea">
+      <p id="queenOne">Roll D20 (1x) to Select Queen #1</p>
+      <button class="Q1" onclick="attackActions()" disabled>Attack</button>
+      <button class="Q1" onclick="defendActions()" disabled>Defend</button>
+      <button class="Q1" onclick="healActions()" disabled>Heal</button>
+    </div>
+    <div id="actionsArea">
+      <p id="queenTwo">Roll D20 (2x) to Select Queen #2</p>
+      <button class="Q2" onclick="attackActions()" disabled>Attack</button>
+      <button class="Q2" onclick="defendActions()" disabled>Defend</button>
+      <button class="Q2" onclick="healActions()" disabled>Heal</button>
+    </div>
+    <div id="actionsArea">
+      <p id="queenThree">Roll D20 (3x) to Select Queen #3</p>
+      <button class="Q3" onclick="attackActions()" disabled>Attack</button>
+      <button class="Q3" onclick="defendActions()" disabled>Defend</button>
+      <button class="Q3" onclick="healActions()" disabled>Heal</button>
+    </div>
+    <div id="actionsArea">
+      <p id="queenFour">Roll D20 (4x) to Select Queen #4</p>
+      <button class="Q4" onclick="attackActions()" disabled>Attack</button>
+      <button class="Q4" onclick="defendActions()" disabled>Defend</button>
+      <button class="Q4" onclick="healActions()" disabled>Heal</button>
+    </div>
+    <div id="actionsArea">
+      <p id="queenFive"> Roll D20 (5x) to Select Queen #5</p>
+      <button class="Q5" onclick="attackActions()" disabled>Attack</button>
+      <button class="Q5" onclick="defendActions()" disabled>Defend</button>
+      <button class="Q5" onclick="healActions()" disabled>Heal</button>
+    </div>
+    
+    <div id="restartButtonArea">
+      <button id="restartButton" onclick="restartGame()">Restart</button>
+    </div>
+    <div id="continueButtonArea">
+      <button id="continueButton" onclick="continueGame()" disabled>Continue To Fight</button>
     </div>
   </div>
   
@@ -114,11 +160,165 @@ p {
 JavaScript (script.js):
 ```javascript
 //--- D20 ---//
+var d20Count = 0; // Counter for D20 rolls
+var gameStatuses = []; // Array to store game statuses
+
 function rollD20() {
   var d20Result = document.getElementById("d20Result");
   var d20 = Math.floor(Math.random() * 20 + 1);
   d20Result.innerHTML = d20;
+
+  // Increment the counter 
+  d20Count++; 
+
+  // Check if one roll has been made
+  if (d20Count === 1) {
+    // Perform Queen #1 selection
+    selectQueenOne(d20); 
+  }
+  // Check if two rolls have been made
+  if (d20Count === 2) {
+    // Perform Queen #2 selection
+    selectQueenTwo(d20); 
+  }
+  // Check if three rolls have been made
+  if (d20Count === 3) {
+    // Perform Queen #3 selection
+    selectQueenThree(d20); 
+  }
+  // Check if four rolls have been made
+  if (d20Count === 4) {
+    // Perform Queen #4 selection
+    selectQueenFour(d20); 
+  } 
+  // Check if five rolls have been made
+  if (d20Count === 5) {
+    // Perform Queen #5 selection
+    selectQueenFive(d20); 
+  }
+  // Check if all queens have been selected
+  if (d20Count === 5) {
+    document.getElementById("continueButton").disabled = false;
+    document.getElementById("restartButton").style.display = "block";
+  }
 };
+
+// Queen Selection logic
+function selectQueenOne(result) {
+  var gameStatus = document.getElementById("queenOne");
+  
+  // Check the result and assign the corresponding queen
+  if (result === 1 || result === 6 || result === 11 || result === 16) {
+    gameStatus.innerHTML = "You are the Oracle Queen";
+  } else if (result === 2 || result === 7 || result === 12 || result === 17) {
+    gameStatus.innerHTML = "You are the Warrior Queen";
+  } else if (result === 3 || result === 8 || result === 13 || result === 18) {
+    gameStatus.innerHTML = "You are the Druid Queen";
+  } else if (result === 4 || result === 9 || result === 14 || result === 19) {
+    gameStatus.innerHTML = "You are the Elemental Queen";
+  } else if (result === 5 || result === 10 || result === 15 || result === 20) {
+    gameStatus.innerHTML = "You are the Poisoner Queen";
+  }
+}
+
+function selectQueenTwo(result) {
+  var gameStatus = document.getElementById("queenTwo");
+  
+  // Check the result and assign the corresponding queen
+  if (result === 1 || result === 6 || result === 11 || result === 16) {
+    gameStatus.innerHTML = "You are the Oracle Queen";
+  } else if (result === 2 || result === 7 || result === 12 || result === 17) {
+    gameStatus.innerHTML = "You are the Warrior Queen";
+  } else if (result === 3 || result === 8 || result === 13 || result === 18) {
+    gameStatus.innerHTML = "You are the Druid Queen";
+  } else if (result === 4 || result === 9 || result === 14 || result === 19) {
+    gameStatus.innerHTML = "You are the Elemental Queen";
+  } else if (result === 5 || result === 10 || result === 15 || result === 20) {
+    gameStatus.innerHTML = "You are the Poisoner Queen";
+  }
+}
+
+function selectQueenThree(result) {
+  var gameStatus = document.getElementById("queenThree");
+  
+  // Check the result and assign the corresponding queen
+  if (result === 1 || result === 6 || result === 11 || result === 16) {
+    gameStatus.innerHTML = "You are the Oracle Queen";
+  } else if (result === 2 || result === 7 || result === 12 || result === 17) {
+    gameStatus.innerHTML = "You are the Warrior Queen";
+  } else if (result === 3 || result === 8 || result === 13 || result === 18) {
+    gameStatus.innerHTML = "You are the Druid Queen";
+  } else if (result === 4 || result === 9 || result === 14 || result === 19) {
+    gameStatus.innerHTML = "You are the Elemental Queen";
+  } else if (result === 5 || result === 10 || result === 15 || result === 20) {
+    gameStatus.innerHTML = "You are the Poisoner Queen";
+  }
+}
+
+function selectQueenFour(result) {
+  var gameStatus = document.getElementById("queenFour");
+  
+  // Check the result and assign the corresponding queen
+  if (result === 1 || result === 6 || result === 11 || result === 16) {
+    gameStatus.innerHTML = "You are the Oracle Queen";
+  } else if (result === 2 || result === 7 || result === 12 || result === 17) {
+    gameStatus.innerHTML = "You are the Warrior Queen";
+  } else if (result === 3 || result === 8 || result === 13 || result === 18) {
+    gameStatus.innerHTML = "You are the Druid Queen";
+  } else if (result === 4 || result === 9 || result === 14 || result === 19) {
+    gameStatus.innerHTML = "You are the Elemental Queen";
+  } else if (result === 5 || result === 10 || result === 15 || result === 20) {
+    gameStatus.innerHTML = "You are the Poisoner Queen";
+  }
+}
+ 
+function selectQueenFive(result) {
+  var gameStatus = document.getElementById("queenFive");
+  
+  // Check the result and assign the corresponding queen
+  if (result === 1 || result === 6 || result === 11 || result === 16) {
+    gameStatus.innerHTML = "You are the Oracle Queen";
+  } else if (result === 2 || result === 7 || result === 12 || result === 17) {
+    gameStatus.innerHTML = "You are the Warrior Queen";
+  } else if (result === 3 || result === 8 || result === 13 || result === 18) {
+    gameStatus.innerHTML = "You are the Druid Queen";
+  } else if (result === 4 || result === 9 || result === 14 || result === 19) {
+    gameStatus.innerHTML = "You are the Elemental Queen";
+  } else if (result === 5 || result === 10 || result === 15 || result === 20) {
+    gameStatus.innerHTML = "You are the Poisoner Queen";
+  }
+}
+
+// Restart Game function
+function restartGame() {
+  // Reset the counters and game statuses
+  d20Count = 0;
+  gameStatuses = [];
+ 
+  // Clear the queen selection outputs
+  document.getElementById("queenOne").innerHTML = "Roll D20 (1x) to Select Queen #1";
+  document.getElementById("queenTwo").innerHTML = "Roll D20 (2x) to Select Queen #2";
+  document.getElementById("queenThree").innerHTML = "Roll D20 (3x) to Select Queen #3";
+  document.getElementById("queenFour").innerHTML = "Roll D20 (4x) to Select Queen #4";
+  document.getElementById("queenFive").innerHTML = "Roll D20 (5x) to Select Queen #5";
+
+  // Clear the dice results
+  document.getElementById("d20Result").innerHTML = "";
+  document.getElementById("d12Result").innerHTML = "";
+  document.getElementById("d10Result").innerHTML = "";
+  document.getElementById("d8Result").innerHTML = "";
+  document.getElementById("d6Result").innerHTML = "";
+  document.getElementById("d4Result").innerHTML = "";
+
+  // Hide the restart button and disable the continue button
+  document.getElementById("restartButton").style.display = "none";
+  document.getElementById("continueButton").disabled = true;
+}
+
+// Continue Game function
+function continueGame() {
+  // Add any code to continue the game here
+}
 
 //--- D12 ---//
 function rollD12() {
@@ -155,55 +355,10 @@ function rollD4() {
   d4Result.innerHTML = d4;
 };
 
-// added
-
-var gameStatus = document.getElementById("gameStatus");
-var adventureArea = document.getElementById("adventureArea");
-
-function startAdventure() {
-  gameStatus.innerHTML = "You are starting your adventure...";
-  
-  // Simulate game progression
-  setTimeout(function() {
-    gameStatus.innerHTML = "You encounter a hungry dragon!";
-    adventureArea.innerHTML += '<button onclick="fightDragon()">Fight</button>';
-    adventureArea.innerHTML += '<button onclick="runAway()">Run Away</button>';
-  }, 2000);
-}
-
-function fightDragon() {
-  gameStatus.innerHTML = "You engage in a fierce battle with the dragon...";
-  
-  // Simulate battle
-  setTimeout(function() {
-    var battleResult = Math.random();
-    if (battleResult < 0.5) {
-      gameStatus.innerHTML = "You defeated the dragon! Congratulations!";
-    } else {
-      gameStatus.innerHTML = "The dragon overpowers you... You lose!";
-    }
-    adventureArea.innerHTML = '<button onclick="startAdventure()">Restart</button>';
-  }, 2000);
-}
-
-function runAway() {
-  gameStatus.innerHTML = "You try to escape from the dragon...";
-  
-  // Simulate escape attempt
-  setTimeout(function() {
-    var escapeResult = Math.random();
-    if (escapeResult < 0.8) {
-      gameStatus.innerHTML = "You successfully escape from the dragon! Well done!";
-    } else {
-      gameStatus.innerHTML = "The dragon catches up to you... You lose!";
-    }
-    adventureArea.innerHTML = '<button onclick="startAdventure()">Restart</button>';
-  }, 2000);
-}
 ```
-Ask ai a question here
+
+where can i add 
  
 -->
-
-
+ 
 */
