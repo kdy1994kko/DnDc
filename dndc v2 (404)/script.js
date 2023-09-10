@@ -152,11 +152,14 @@ function restartGame() {
   // Hide the restart button and disable the continue button
   document.getElementById("restartButton").style.display = "none";
   document.getElementById("continueButton").disabled = true;
+  // Disable the d12 button
+  document.getElementById("d12").disabled = true;
 }
 
 // Continue Game function
 function continueGame() {
-  // Add any code to continue the game here
+  // Enable the d12 button
+  document.getElementById("d12").disabled = false;
 }
 
 //--- D12 ---//
@@ -206,5 +209,6 @@ function rollD4() {
 
 // Done == Restart Button
 // Done == Continue Button
+// Done == Continue makes D12 activate
 // Done == Disable Buttons 
 // Done == Add A Health Bar

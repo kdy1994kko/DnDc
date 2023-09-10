@@ -1,14 +1,4 @@
-/* DO NOT UPDATE ( OLD NOTES ) */
-
-
-<!-- 
-
-  // Disable all the buttons after five rolls
-    var buttons = document.getElementsByTagName("button");
-    for (var i = 0; i < buttons.length; i++) {
-      buttons[i].disabled = true;
-    } 
-  -->
+******* DO NOT UPDATE ( OLD NOTES ) *******
 
 
 HTML:
