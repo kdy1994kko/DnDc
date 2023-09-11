@@ -137,8 +137,7 @@ p {
   margin-left: 10px;
 }
 ```
-where do i add enable the d12 button when the continueGame button is clicked and disable d12 when restart is clicked
-
+where do i add a health percentage to the left side of the health bars
 
 
 

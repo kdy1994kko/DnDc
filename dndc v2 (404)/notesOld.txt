@@ -1,8 +1,6 @@
 ******* DO NOT UPDATE ( OLD NOTES ) *******
 
 
-HTML:
-```html
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,71 +11,85 @@ HTML:
   <h1>DnDc</h1>
   <div id="game">
     <div id="diceRoller">
+      
       <div class="diceArea">
-        <button class="d20" onclick="rollD20()">Roll D20</button>
+        <button class="d20" onclick="rollD20()" id="d20">Roll D20</button>
         <p id="d20Result"></p>
       </div>
 
       <div class="diceArea">
-        <button class="d12" onclick="rollD12()" disabled>Roll D12</button>
+        <button class="d12" onclick="rollD12()" disabled id="d12">Roll D12</button>
         <p id="d12Result"></p>
       </div>
   
       <div class="diceArea">
-        <button class="d10" onclick="rollD10()" disabled>Roll D10</button>
+        <button class="d10" onclick="rollD10()" disabled id="d10">Roll D10</button>
         <p id="d10Result"></p>
       </div>
   
       <div class="diceArea">
-        <button class="d8" onclick="rollD8()" disabled>Roll D8</button>
+        <button class="d8" onclick="rollD8()" disabled id="d8">Roll D8</button>
         <p id="d8Result"></p>
       </div>
   
       <div class="diceArea">
-        <button class="d6" onclick="rollD6()" disabled>Roll D6</button>
+        <button class="d6" onclick="rollD6()" disabled id="d6">Roll D6</button>
         <p id="d6Result"></p>
       </div>
   
       <div class="diceArea">
-        <button class="d4" onclick="rollD4()" disabled>Roll D4</button>
+        <button class="d4" onclick="rollD4()" disabled id="d4">Roll D4</button>
         <p id="d4Result"></p>
       </div>
     </div>
- 
-    <div id="actionsArea">
-      <p id="queenOne">Roll D20 (1x) to Select Queen #1</p>
-      <button class="Q1" onclick="attackActions()" disabled>Attack</button>
-      <button class="Q1" onclick="defendActions()" disabled>Defend</button>
-      <button class="Q1" onclick="healActions()" disabled>Heal</button>
-    </div>
-    <div id="actionsArea">
-      <p id="queenTwo">Roll D20 (2x) to Select Queen #2</p>
-      <button class="Q2" onclick="attackActions()" disabled>Attack</button>
-      <button class="Q2" onclick="defendActions()" disabled>Defend</button>
-      <button class="Q2" onclick="healActions()" disabled>Heal</button>
-    </div>
-    <div id="actionsArea">
-      <p id="queenThree">Roll D20 (3x) to Select Queen #3</p>
-      <button class="Q3" onclick="attackActions()" disabled>Attack</button>
-      <button class="Q3" onclick="defendActions()" disabled>Defend</button>
-      <button class="Q3" onclick="healActions()" disabled>Heal</button>
-    </div>
-    <div id="actionsArea">
-      <p id="queenFour">Roll D20 (4x) to Select Queen #4</p>
-      <button class="Q4" onclick="attackActions()" disabled>Attack</button>
-      <button class="Q4" onclick="defendActions()" disabled>Defend</button>
-      <button class="Q4" onclick="healActions()" disabled>Heal</button>
-    </div>
-    <div id="actionsArea">
-      <p id="queenFive"> Roll D20 (5x) to Select Queen #5</p>
-      <button class="Q5" onclick="attackActions()" disabled>Attack</button>
-      <button class="Q5" onclick="defendActions()" disabled>Defend</button>
-      <button class="Q5" onclick="healActions()" disabled>Heal</button>
+
+    <div id="queensArea">
+      <div class="queen">
+        <p id="queenOne">Roll D20 (1x) to Select Queen #1</p>
+        <div class="healthBar" id="queenOneHealth"></div>
+        <button class="Q1" onclick="attackActions()" disabled>Attack</button>
+        <button class="Q1" onclick="defendActions()" disabled>Defend</button>
+        <button class="Q1" onclick="healActions()" disabled>Heal</button>
+      </div>
+
+      <div class="queen">
+        <p id="queenTwo">Roll D20 (2x) to Select Queen #2</p>
+        <div class="healthBar" id="queenTwoHealth"></div>
+        <button class="Q2" onclick="attackActions()" disabled>Attack</button>
+        <button class="Q2" onclick="defendActions()" disabled>Defend</button>
+        <button class="Q2" onclick="healActions()" disabled>Heal</button>        
+      </div>
+      
+      <div class="queen">
+        <p id="queenThree">Roll D20 (3x) to Select Queen #3</p>
+        <div class="healthBar" id="queenThreeHealth"></div>
+        <button class="Q3" onclick="attackActions()" disabled>Attack</button>
+        <button class="Q3" onclick="defendActions()" disabled>Defend</button>
+        <button class="Q3" onclick="healActions()" disabled>Heal</button>      
+      </div>
+  
+      <div class="queen">
+        <p id="queenFour">Roll D20 (4x) to Select Queen #4</p>
+        <div class="healthBar" id="queenFourHealth"></div>
+        <button class="Q4" onclick="attackActions()" disabled>Attack</button>
+        <button class="Q4" onclick="defendActions()" disabled>Defend</button>
+        <button class="Q4" onclick="healActions()" disabled>Heal</button>        
+      </div>      
+        
+      <div class="queen">
+        <p id="queenFive"> Roll D20 (5x) to Select Queen #5</p>
+        <div class="healthBar" id="queenFiveHealth"></div>
+        <button class="Q5" onclick="attackActions()" disabled>Attack</button>
+        <button class="Q5" onclick="defendActions()" disabled>Defend</button>
+        <button class="Q5" onclick="healActions()" disabled>Heal</button>      
+      </div>              
     </div>
     
+    <!-- Restart Game Button -->
     <div id="restartButtonArea">
       <button id="restartButton" onclick="restartGame()">Restart</button>
     </div>
+    <!-- Continue Game Button -->
     <div id="continueButtonArea">
       <button id="continueButton" onclick="continueGame()" disabled>Continue To Fight</button>
     </div>
@@ -86,6 +98,7 @@ HTML:
   <script src="script.js"></script>
 </body>
 </html>
+
 ```
 
 CSS (style.css):
@@ -100,7 +113,7 @@ CSS (style.css):
   margin: 10px;
   text-align: center;
 }
-
+ 
 button {
   font-size: 16px;
   padding: 6px 12px;
@@ -112,7 +125,38 @@ p {
   margin-top: 10px;
   font-weight: bold;
 }
+
+.queen {
+  display: flex;
+  align-items: center;
+}
+
+.healthBar {
+  width: 100px;
+  height: 20px;
+  background-color: green;
+  margin-left: 10px;
+}
 ```
+where do i add enable the d12 button when the continueGame button is clicked and disable d12 when restart is clicked
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 JavaScript (script.js):
 ```javascript
@@ -270,11 +314,14 @@ function restartGame() {
   // Hide the restart button and disable the continue button
   document.getElementById("restartButton").style.display = "none";
   document.getElementById("continueButton").disabled = true;
+  // Disable the d12 button
+  document.getElementById("d12").disabled = true;
 }
 
 // Continue Game function
 function continueGame() {
-  // Add any code to continue the game here
+  // Enable the d12 button
+  document.getElementById("d12").disabled = false;
 }
 
 //--- D12 ---//
@@ -312,7 +359,4 @@ function rollD4() {
   d4Result.innerHTML = d4;
 };
 
-```
 
-where can i add 
- 

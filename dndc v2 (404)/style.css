@@ -27,8 +27,18 @@ p {
 }
 
 .healthBar {
+  position: relative;
   width: 100px;
   height: 20px;
   background-color: green;
   margin-left: 10px;
+}
+
+.healthBar span {
+  position: absolute; 
+  left: 0; 
+  top: 0; 
+  padding: 3px; 
+  font-size: 14px; 
+  color: white; 
 }
