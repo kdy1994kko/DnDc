@@ -250,7 +250,6 @@ function rollD4() {
 
 //--- To Do List ---//
 
-// add a 50 point health bar
 // make D12 activate FIGHT, DEFEND, HEAL Buttons
 // give each queen type their own dice type & abilities
 // disable a dead queen
@@ -261,4 +260,4 @@ function rollD4() {
 // Done == Continue Button
 // Done == Continue makes D12 activate
 // Done == Disable Buttons 
-// Done == Add A Health Bar
+// Done == Add A 50 point Health Bar

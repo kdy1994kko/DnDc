@@ -58,8 +58,18 @@ function selectQueenOne(result) {
   } else if (result === 5 || result === 10 || result === 15 || result === 20) {
     gameStatus.innerHTML = "You are the Poisoner Queen";
   }
-}
 
+  // Update the health percentage for Queen #1
+  const queenOneHealthPercentage = document.getElementById('queenOneHealthPercentage');
+
+  function updateQueenOneHealthPercentage(percentage) {
+    queenOneHealthPercentage.textContent = percentage + 'HP';
+  }
+ 
+  // Call the update function with the appropriate percentage value
+  updateQueenOneHealthPercentage(50); 
+}
+ 
 function selectQueenTwo(result) {
   var gameStatus = document.getElementById("queenTwo");
   
@@ -75,6 +85,16 @@ function selectQueenTwo(result) {
   } else if (result === 5 || result === 10 || result === 15 || result === 20) {
     gameStatus.innerHTML = "You are the Poisoner Queen";
   }
+
+  // Update the health percentage for Queen #2
+  const queenTwoHealthPercentage = document.getElementById('queenTwoHealthPercentage');
+
+  function updateQueenTwoHealthPercentage(percentage) {
+    queenTwoHealthPercentage.textContent = percentage + 'HP';
+  }
+
+  // Call the update function with the appropriate percentage value
+  updateQueenTwoHealthPercentage(50);
 }
 
 function selectQueenThree(result) {
@@ -92,6 +112,16 @@ function selectQueenThree(result) {
   } else if (result === 5 || result === 10 || result === 15 || result === 20) {
     gameStatus.innerHTML = "You are the Poisoner Queen";
   }
+
+  // Update the health percentage for Queen #3
+  const queenThreeHealthPercentage = document.getElementById('queenThreeHealthPercentage');
+
+  function updateQueenThreeHealthPercentage(percentage) {
+    queenThreeHealthPercentage.textContent = percentage + 'HP';
+  }
+
+  // Call the update function with the appropriate percentage value
+  updateQueenThreeHealthPercentage(50);
 }
 
 function selectQueenFour(result) {
@@ -109,6 +139,16 @@ function selectQueenFour(result) {
   } else if (result === 5 || result === 10 || result === 15 || result === 20) {
     gameStatus.innerHTML = "You are the Poisoner Queen";
   }
+
+  // Update the health percentage for Queen #4
+  const queenFourHealthPercentage = document.getElementById('queenFourHealthPercentage');
+
+  function updateQueenFourHealthPercentage(percentage) {
+    queenFourHealthPercentage.textContent = percentage + 'HP';
+  }
+
+  // Call the update function with the appropriate percentage value
+  updateQueenFourHealthPercentage(50);
 }
  
 function selectQueenFive(result) {
@@ -126,6 +166,16 @@ function selectQueenFive(result) {
   } else if (result === 5 || result === 10 || result === 15 || result === 20) {
     gameStatus.innerHTML = "You are the Poisoner Queen";
   }
+
+  // Update the health percentage for Queen #5
+  const queenFiveHealthPercentage = document.getElementById('queenFiveHealthPercentage');
+
+  function updateQueenFiveHealthPercentage(percentage) {
+    queenFiveHealthPercentage.textContent = percentage + 'HP';
+  }
+
+  // Call the update function with the appropriate percentage value
+  updateQueenFiveHealthPercentage(50);
 }
 
 // Restart Game function
@@ -152,11 +202,14 @@ function restartGame() {
   // Hide the restart button and disable the continue button
   document.getElementById("restartButton").style.display = "none";
   document.getElementById("continueButton").disabled = true;
+  // Disable the d12 button
+  document.getElementById("d12").disabled = true;
 }
 
 // Continue Game function
 function continueGame() {
-  // Add any code to continue the game here
+  // Enable the d12 button
+  document.getElementById("d12").disabled = false;
 }
 
 //--- D12 ---//
@@ -197,12 +250,14 @@ function rollD4() {
 
 //--- To Do List ---//
 
-// add a 50 point health bar
 // make D12 activate FIGHT, DEFEND, HEAL Buttons
 // give each queen type their own dice type & abilities
 // disable a dead queen
 // determine TRUE queen winner
 
+
 // Done == Restart Button
 // Done == Continue Button
+// Done == Continue makes D12 activate
 // Done == Disable Buttons 
+// Done == Add A 50 point Health Bar

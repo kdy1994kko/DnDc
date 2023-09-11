@@ -1,5 +1,4 @@
-******* DO NOT UPDATE ( OLD NOTES ) *******
-
+******* ALWAYS UPDATE ( NEW NOTES ) *******
 
 <!DOCTYPE html>
 <html>
@@ -46,7 +45,9 @@
     <div id="queensArea">
       <div class="queen">
         <p id="queenOne">Roll D20 (1x) to Select Queen #1</p>
-        <div class="healthBar" id="queenOneHealth"></div>
+        <div class="healthBar" id="queenOneHealth">
+          <span id="queenOneHealthPercentage"></span>
+        </div>
         <button class="Q1" onclick="attackActions()" disabled>Attack</button>
         <button class="Q1" onclick="defendActions()" disabled>Defend</button>
         <button class="Q1" onclick="healActions()" disabled>Heal</button>
@@ -54,7 +55,9 @@
 
       <div class="queen">
         <p id="queenTwo">Roll D20 (2x) to Select Queen #2</p>
-        <div class="healthBar" id="queenTwoHealth"></div>
+        <div class="healthBar" id="queenTwoHealth">
+          <span id="queenTwoHealthPercentage"></span>
+        </div>
         <button class="Q2" onclick="attackActions()" disabled>Attack</button>
         <button class="Q2" onclick="defendActions()" disabled>Defend</button>
         <button class="Q2" onclick="healActions()" disabled>Heal</button>        
@@ -62,7 +65,9 @@
       
       <div class="queen">
         <p id="queenThree">Roll D20 (3x) to Select Queen #3</p>
-        <div class="healthBar" id="queenThreeHealth"></div>
+        <div class="healthBar" id="queenThreeHealth">
+          <span id="queenThreeHealthPercentage"></span>
+        </div>
         <button class="Q3" onclick="attackActions()" disabled>Attack</button>
         <button class="Q3" onclick="defendActions()" disabled>Defend</button>
         <button class="Q3" onclick="healActions()" disabled>Heal</button>      
@@ -70,7 +75,9 @@
   
       <div class="queen">
         <p id="queenFour">Roll D20 (4x) to Select Queen #4</p>
-        <div class="healthBar" id="queenFourHealth"></div>
+        <div class="healthBar" id="queenFourHealth">
+          <span id="queenFourHealthPercentage"></span>
+        </div>
         <button class="Q4" onclick="attackActions()" disabled>Attack</button>
         <button class="Q4" onclick="defendActions()" disabled>Defend</button>
         <button class="Q4" onclick="healActions()" disabled>Heal</button>        
@@ -78,7 +85,9 @@
         
       <div class="queen">
         <p id="queenFive"> Roll D20 (5x) to Select Queen #5</p>
-        <div class="healthBar" id="queenFiveHealth"></div>
+        <div class="healthBar" id="queenFiveHealth">
+          <span id="queenFiveHealthPercentage"></span>
+        </div>
         <button class="Q5" onclick="attackActions()" disabled>Attack</button>
         <button class="Q5" onclick="defendActions()" disabled>Defend</button>
         <button class="Q5" onclick="healActions()" disabled>Heal</button>      
@@ -98,6 +107,7 @@
   <script src="script.js"></script>
 </body>
 </html>
+
 
 ```
 
@@ -132,14 +142,23 @@ p {
 }
 
 .healthBar {
+  position: relative;
   width: 100px;
   height: 20px;
   background-color: green;
   margin-left: 10px;
 }
-```
-where do i add enable the d12 button when the continueGame button is clicked and disable d12 when restart is clicked
 
+.healthBar span {
+  position: absolute; 
+  left: 0; 
+  top: 0; 
+  padding: 3px; 
+  font-size: 14px; 
+  color: white; 
+}
+```
+where do i add a health percentage to the left side of the health bars
 
 
 
@@ -220,8 +239,18 @@ function selectQueenOne(result) {
   } else if (result === 5 || result === 10 || result === 15 || result === 20) {
     gameStatus.innerHTML = "You are the Poisoner Queen";
   }
-}
 
+  // Update the health percentage for Queen #1
+  const queenOneHealthPercentage = document.getElementById('queenOneHealthPercentage');
+
+  function updateQueenOneHealthPercentage(percentage) {
+    queenOneHealthPercentage.textContent = percentage + 'HP';
+  }
+ 
+  // Call the update function with the appropriate percentage value
+  updateQueenOneHealthPercentage(50); 
+}
+ 
 function selectQueenTwo(result) {
   var gameStatus = document.getElementById("queenTwo");
   
@@ -237,6 +266,16 @@ function selectQueenTwo(result) {
   } else if (result === 5 || result === 10 || result === 15 || result === 20) {
     gameStatus.innerHTML = "You are the Poisoner Queen";
   }
+
+  // Update the health percentage for Queen #2
+  const queenTwoHealthPercentage = document.getElementById('queenTwoHealthPercentage');
+
+  function updateQueenTwoHealthPercentage(percentage) {
+    queenTwoHealthPercentage.textContent = percentage + 'HP';
+  }
+
+  // Call the update function with the appropriate percentage value
+  updateQueenTwoHealthPercentage(50);
 }
 
 function selectQueenThree(result) {
@@ -254,6 +293,16 @@ function selectQueenThree(result) {
   } else if (result === 5 || result === 10 || result === 15 || result === 20) {
     gameStatus.innerHTML = "You are the Poisoner Queen";
   }
+
+  // Update the health percentage for Queen #3
+  const queenThreeHealthPercentage = document.getElementById('queenThreeHealthPercentage');
+
+  function updateQueenThreeHealthPercentage(percentage) {
+    queenThreeHealthPercentage.textContent = percentage + 'HP';
+  }
+
+  // Call the update function with the appropriate percentage value
+  updateQueenThreeHealthPercentage(50);
 }
 
 function selectQueenFour(result) {
@@ -271,6 +320,16 @@ function selectQueenFour(result) {
   } else if (result === 5 || result === 10 || result === 15 || result === 20) {
     gameStatus.innerHTML = "You are the Poisoner Queen";
   }
+
+  // Update the health percentage for Queen #4
+  const queenFourHealthPercentage = document.getElementById('queenFourHealthPercentage');
+
+  function updateQueenFourHealthPercentage(percentage) {
+    queenFourHealthPercentage.textContent = percentage + 'HP';
+  }
+
+  // Call the update function with the appropriate percentage value
+  updateQueenFourHealthPercentage(50);
 }
  
 function selectQueenFive(result) {
@@ -288,6 +347,16 @@ function selectQueenFive(result) {
   } else if (result === 5 || result === 10 || result === 15 || result === 20) {
     gameStatus.innerHTML = "You are the Poisoner Queen";
   }
+
+  // Update the health percentage for Queen #5
+  const queenFiveHealthPercentage = document.getElementById('queenFiveHealthPercentage');
+
+  function updateQueenFiveHealthPercentage(percentage) {
+    queenFiveHealthPercentage.textContent = percentage + 'HP';
+  }
+
+  // Call the update function with the appropriate percentage value
+  updateQueenFiveHealthPercentage(50);
 }
 
 // Restart Game function
@@ -358,5 +427,4 @@ function rollD4() {
   var d4 = Math.floor(Math.random() * 4 + 1);
   d4Result.innerHTML = d4;
 };
-
 
