@@ -5,8 +5,12 @@ body {
   background-color: black;
 }
 
-#queenOne, #queenTwo, #queenThree, #queenFour, #queenFive  {
-  color: red;
+#queenOne, #queenTwo, #queenThree, #queenFour, #queenFive {
+  color: blueviolet;
+}
+
+#d20Result, #d12Result, #d10Result, #d8Result, #d6Result, #d4Result {
+  color: rgba(0, 0, 255, 0.875);
 }
 
 #diceRoller {

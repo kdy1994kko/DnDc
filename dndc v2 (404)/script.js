@@ -251,6 +251,7 @@ function rollD4() {
 //--- To Do List ---//
 
 // make D12 activate FIGHT, DEFEND, HEAL Buttons
+// add a hp shaking motion when attacked
 // give each queen type their own dice type & abilities
 // disable a dead queen
 // determine TRUE queen winner
@@ -261,3 +262,4 @@ function rollD4() {
 // Done == Continue makes D12 activate
 // Done == Disable Buttons 
 // Done == Add A 50 point Health Bar
+// Done == Add Background
