@@ -282,6 +282,10 @@ function rollD4() {
 //--- To Do List ---//
 
 // disable hp if restart is clicked
+// disable D20 if restart is displyed 
+// disable continue if continue is clicked
+// if Attack, Defend, Heal Buttons clicked go to next queens turn
+
 // make the D12 rules  
 // add a hp shaking motion when attacked
 // give each queen type their own dice type & abilities
