@@ -204,6 +204,9 @@ function restartGame() {
   document.getElementById("continueButton").disabled = true;
   // Disable the d12 button
   document.getElementById("d12").disabled = true;
+  q1AttackButton.disabled = true;
+  q1DefendButton.disabled = true;
+  q1HealButton.disabled = true;
 }
 
 // Continue Game function
@@ -213,10 +216,38 @@ function continueGame() {
 }
 
 //--- D12 ---//
+const d12Button = document.getElementById('d12');
+const d12Result = document.getElementById('d12Result');
+const q1AttackButton = document.querySelector('.Q1a');
+const q1DefendButton = document.querySelector('.Q1d');
+const q1HealButton = document.querySelector('.Q1h');
+
+
+// Function to roll the D12 and activate corresponding buttons
 function rollD12() {
-  var d12Result = document.getElementById("d12Result");
-  var d12 = Math.floor(Math.random() * 12 + 1);
-  d12Result.innerHTML = d12;
+  // Generate a random number between 1 and 12
+  const d12Value = Math.floor(Math.random() * 12) + 1;
+  // Display the result
+  d12Result.textContent = `${d12Value}`;
+
+  // Check the value and enable/disable buttons accordingly
+  if ([1, 4, 7, 10].includes(d12Value)) {
+    q1AttackButton.disabled = false;
+  } else {
+    q1AttackButton.disabled = true;
+  }
+
+  if ([2, 5, 8, 11].includes(d12Value)) {
+    q1DefendButton.disabled = false;
+  } else {
+    q1DefendButton.disabled = true;
+  }
+
+  if ([3, 6, 9, 12].includes(d12Value)) {
+    q1HealButton.disabled = false;
+  } else {
+    q1HealButton.disabled = true;
+  }
 };
 
 //--- D10 ---//
@@ -250,8 +281,8 @@ function rollD4() {
 
 //--- To Do List ---//
 
+// disable hp if restart is clicked
 // make the D12 rules  
-// make D12 activate FIGHT, DEFEND, HEAL Buttons
 // add a hp shaking motion when attacked
 // give each queen type their own dice type & abilities
 
@@ -273,3 +304,4 @@ function rollD4() {
 // Done == Disable Buttons 
 // Done == Add A 50 point Health Bar
 // Done == Add Background
+// Done == D12 activate Attack, Defend, Heal Buttons
