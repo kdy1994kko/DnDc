@@ -250,9 +250,17 @@ function rollD4() {
 
 //--- To Do List ---//
 
-// make D12 activate FIGHT, DEFEND, HEAL Buttons
-// give each queen type their own dice type & abilities
+// turn .healthBar green if updateQueenOneHealthPercentage() is greater than or equal to 35
+// turn .healthBar yellow if updateQueenOneHealthPercentage() is greater than 20 and less than 35
+// turn .healthBar red if updateQueenOneHealthPercentage() is greater than 1 and less than 20 
+// turn .healthBar black if updateQueenOneHealthPercentage() is equal to 0
+// if .healthBar black make gameStatus.innerHTML = "Queen Is Dead"; and disable the dead queen and her buttons
 // disable a dead queen
+
+// make D12 activate FIGHT, DEFEND, HEAL Buttons
+// add a hp shaking motion when attacked
+// give each queen type their own dice type & abilities
+
 // determine TRUE queen winner
 
 
@@ -261,3 +269,4 @@ function rollD4() {
 // Done == Continue makes D12 activate
 // Done == Disable Buttons 
 // Done == Add A 50 point Health Bar
+// Done == Add Background
