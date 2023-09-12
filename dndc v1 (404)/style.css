@@ -1,3 +1,14 @@
+body {
+  background-image: url("https://w0.peakpx.com/wallpaper/47/692/HD-wallpaper-purple-flower-abstract-background-purple-floral-shine-stars.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: black;
+}
+
+#queenOne, #queenTwo, #queenThree, #queenFour, #queenFive  {
+  color: red;
+}
+
 #diceRoller {
   display: flex;
   flex-wrap: wrap;

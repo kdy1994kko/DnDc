@@ -1,4 +1,4 @@
-******* ALWAYS UPDATE ( NEW NOTES ) *******
+******* NEVER UPDATE ( OLD NOTES ) *******
 
 <!DOCTYPE html>
 <html>
@@ -110,9 +110,20 @@
 
 
 ```
-
+ 
 CSS (style.css):
 ```css
+body {
+  background-image: url("https://w0.peakpx.com/wallpaper/47/692/HD-wallpaper-purple-flower-abstract-background-purple-floral-shine-stars.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: black;
+}
+
+#queenOne, #queenTwo, #queenThree, #queenFour, #queenFive  {
+  color: red;
+}
+
 #diceRoller {
   display: flex;
   flex-wrap: wrap;
@@ -158,9 +169,7 @@ p {
   color: white; 
 }
 ```
-where do i add a health percentage to the left side of the health bars
-
-
+where do i add if you are the warrior queen change the id="queenOne" color to white
 
 
 
@@ -427,4 +436,5 @@ function rollD4() {
   var d4 = Math.floor(Math.random() * 4 + 1);
   d4Result.innerHTML = d4;
 };
+
 
