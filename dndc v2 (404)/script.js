@@ -1,4 +1,7 @@
 //--- D20 ---//
+var d20Button1 = document.getElementById("d20");
+var restartButton = document.getElementById("restartButton");
+var continueButton = document.getElementById("continueButton");
 var d20Count = 0; // Counter for D20 rolls
 var gameStatuses = []; // Array to store game statuses
 
@@ -39,6 +42,8 @@ function rollD20() {
   if (d20Count === 5) {
     document.getElementById("continueButton").disabled = false;
     document.getElementById("restartButton").style.display = "block";
+    d20Button1.disabled = true;
+    
   }
 };
 
@@ -202,6 +207,10 @@ function restartGame() {
   // Hide the restart button and disable the continue button
   document.getElementById("restartButton").style.display = "none";
   document.getElementById("continueButton").disabled = true;
+  
+  // Enable the d20 button
+  d20Button1.disabled = false;
+
   // Disable the d12 button
   document.getElementById("d12").disabled = true;
   q1AttackButton.disabled = true;
@@ -213,14 +222,18 @@ function restartGame() {
 function continueGame() {
   // Enable the d12 button
   document.getElementById("d12").disabled = false;
+  continueButton.disabled = true;
+  d20Result.disabled = true;
 }
 
-//--- D12 ---//
-const d12Button = document.getElementById('d12');
-const d12Result = document.getElementById('d12Result');
-const q1AttackButton = document.querySelector('.Q1a');
-const q1DefendButton = document.querySelector('.Q1d');
-const q1HealButton = document.querySelector('.Q1h');
+//--- D12 ---// DONT FORGET Q2adh Q3adh Q4adh Q5adh !!!!!!!!
+
+//--- For Queen #1 ---//
+var d12Button = document.getElementById('d12');
+var d12Result = document.getElementById('d12Result');
+var q1AttackButton = document.querySelector('.Q1a');
+var q1DefendButton = document.querySelector('.Q1d');
+var q1HealButton = document.querySelector('.Q1h');
 
 
 // Function to roll the D12 and activate corresponding buttons
@@ -278,13 +291,21 @@ function rollD4() {
   d4Result.innerHTML = d4;
 };
 
+//--- Attack Queen#??? ---//
+function rollD5() {
+  var QueenResult = document.getElementById("QueenResult");
+  var Queen = Math.floor(Math.random() * 5 + 1);
+  QueenResult.innerHTML = Queen;
+};
+
 
 //--- To Do List ---//
 
-// disable hp if restart is clicked
-// disable D20 if restart is displyed 
-// disable continue if continue is clicked
+// disable queenOneHealthPercentage if restart is clicked
 // if Attack, Defend, Heal Buttons clicked go to next queens turn
+// attack = QueenTypeDiceResult + d20 result + Queen #
+// defend = d12 result
+// heal = d12 result
 
 // make the D12 rules  
 // add a hp shaking motion when attacked
