@@ -301,7 +301,7 @@ function rollD5() {
 
 //--- To Do List ---//
 
-// disable queenOneHealthPercentage if restart is clicked
+  
 // if Attack, Defend, Heal Buttons clicked go to next queens turn
 // attack = QueenTypeDiceResult + d20 result + Queen #
 // defend = d12 result
