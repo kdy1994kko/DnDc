@@ -223,10 +223,9 @@ function continueGame() {
   // Enable the d12Q1 button
   document.getElementById("d12Q1").disabled = false;
   continueButton.disabled = true;
-  d20Result.disabled = true;
 }
 
-//--- D12 ---// DONT FORGET Q2adh Q3adh Q4adh Q5adh !!!!!!!!
+//--- D12 ---// 
 
 //--- For Queen #1 ---//
 var d12Button = document.getElementById('d12Q1');
@@ -262,6 +261,31 @@ function rollD12() {
     q1HealButton.disabled = true;
   }
 };
+
+//--- For Queen #2 ---//
+var d12Q2Button = document.getElementById('d12Q2');
+// var d12Result = document.getElementById('d12Result');
+var q2AttackButton = document.querySelector('.Q2a');
+var q2DefendButton = document.querySelector('.Q2d');
+var q2HealButton = document.querySelector('.Q2h');
+//--- For Queen #3 ---// 
+var d12Q3Button = document.getElementById('d12Q3');
+// var d12Result = document.getElementById('d12Result');
+var q3AttackButton = document.querySelector('.Q3a');
+var q3DefendButton = document.querySelector('.Q3d');
+var q3HealButton = document.querySelector('.Q3h');
+//--- For Queen #4 ---//
+var d12Q4Button = document.getElementById('d12Q4');
+// var d12Result = document.getElementById('d12Result');
+var q4AttackButton = document.querySelector('.Q4a');
+var q4DefendButton = document.querySelector('.Q4d');
+var q4HealButton = document.querySelector('.Q4h');
+//--- For Queen #5 ---//
+var d12Q5Button = document.getElementById('d12Q5');
+// var d12Result = document.getElementById('d12Result');
+var q5AttackButton = document.querySelector('.Q5a');
+var q5DefendButton = document.querySelector('.Q5d');
+var q5HealButton = document.querySelector('.Q5h');
 
 //--- D10 ---//
 function rollD10() {
@@ -301,7 +325,10 @@ function rollD5() {
 
 //--- To Do List ---//
 
-  
+// LINE 239 in JS *******
+// where do i add if d12Q1 is clicked then disable d12Q1 
+// where do i add if Q1a Q1d Q1h is clicked then enable d12Q2 then disable Q1a Q1d Q1h
+ 
 // if Attack, Defend, Heal Buttons clicked go to next queens turn
 // attack = QueenTypeDiceResult + d20 result + Queen #
 // defend = d12 result

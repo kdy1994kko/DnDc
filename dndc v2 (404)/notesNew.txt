@@ -192,7 +192,7 @@ p {
   color: black; 
 }
 ```
-
+// LINE 239 in JS *******
 where do i add if d12Q1 is clicked then disable d12Q1 
 where do i add if Q1a Q1d Q1h is clicked then enable d12Q2 then disable Q1a Q1d Q1h
 
