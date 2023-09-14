@@ -51,7 +51,7 @@
         <button class="Q1d" onclick="defendActions()" disabled>Defend</button>
         <button class="Q1h" onclick="healActions()" disabled>Heal</button>
         <div class="diceArea">
-          <button class="d12" onclick="rollD12()" disabled id="d12">Roll D12</button>
+          <button class="d12" onclick="rollD12()" disabled id="d12Q1">Roll D12</button>
           <p id="d12Result"></p>
         </div>
       </div>
@@ -65,7 +65,7 @@
         <button class="Q2d" onclick="defendActions()" disabled>Defend</button>
         <button class="Q2h" onclick="healActions()" disabled>Heal</button>        
         <div class="diceArea">
-          <button class="d12" onclick="rollD12()" disabled id="d12">Roll D12</button>
+          <button class="d12" onclick="rollD12()" disabled id="d12Q2">Roll D12</button>
           <p id="d12Result"></p>
         </div>
       </div>
@@ -79,7 +79,7 @@
         <button class="Q3d" onclick="defendActions()" disabled>Defend</button>
         <button class="Q3h" onclick="healActions()" disabled>Heal</button>      
         <div class="diceArea">
-          <button class="d12" onclick="rollD12()" disabled id="d12">Roll D12</button>
+          <button class="d12" onclick="rollD12()" disabled id="d12Q3">Roll D12</button>
           <p id="d12Result"></p>
         </div>
       </div>
@@ -93,7 +93,7 @@
         <button class="Q4d" onclick="defendActions()" disabled>Defend</button>
         <button class="Q4h" onclick="healActions()" disabled>Heal</button>        
         <div class="diceArea">
-          <button class="d12" onclick="rollD12()" disabled id="d12">Roll D12</button>
+          <button class="d12" onclick="rollD12()" disabled id="d12Q4">Roll D12</button>
           <p id="d12Result"></p>
         </div>
       </div>      
@@ -107,7 +107,7 @@
         <button class="Q5d" onclick="defendActions()" disabled>Defend</button>
         <button class="Q5h" onclick="healActions()" disabled>Heal</button>      
         <div class="diceArea">
-          <button class="d12" onclick="rollD12()" disabled id="d12">Roll D12</button>
+          <button class="d12" onclick="rollD12()" disabled id="d12Q5">Roll D12</button>
           <p id="d12Result"></p>
         </div>
       </div>              
@@ -126,6 +126,7 @@
   <script src="script.js"></script>
 </body>
 </html>
+
 
 ```
  
@@ -192,7 +193,7 @@ p {
 }
 ```
 
-if continue is clicked then disable d20Result
+where do i add if Q1h is clicked then enable
 
 
 
@@ -425,8 +426,8 @@ function restartGame() {
   // Enable the d20 button
   d20Button1.disabled = false;
 
-  // Disable the d12 button
-  document.getElementById("d12").disabled = true;
+  // Disable the d12Q1 button
+  document.getElementById("d12Q1").disabled = true;
   q1AttackButton.disabled = true;
   q1DefendButton.disabled = true;
   q1HealButton.disabled = true;
@@ -434,8 +435,8 @@ function restartGame() {
 
 // Continue Game function
 function continueGame() {
-  // Enable the d12 button
-  document.getElementById("d12").disabled = false;
+  // Enable the d12Q1 button
+  document.getElementById("d12Q1").disabled = false;
   continueButton.disabled = true;
   d20Result.disabled = true;
 }
@@ -443,7 +444,7 @@ function continueGame() {
 //--- D12 ---// DONT FORGET Q2adh Q3adh Q4adh Q5adh !!!!!!!!
 
 //--- For Queen #1 ---//
-var d12Button = document.getElementById('d12');
+var d12Button = document.getElementById('d12Q1');
 var d12Result = document.getElementById('d12Result');
 var q1AttackButton = document.querySelector('.Q1a');
 var q1DefendButton = document.querySelector('.Q1d');
@@ -511,3 +512,4 @@ function rollD5() {
   var Queen = Math.floor(Math.random() * 5 + 1);
   QueenResult.innerHTML = Queen;
 };
+

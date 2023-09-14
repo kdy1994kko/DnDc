@@ -211,8 +211,8 @@ function restartGame() {
   // Enable the d20 button
   d20Button1.disabled = false;
 
-  // Disable the d12 button
-  document.getElementById("d12").disabled = true;
+  // Disable the d12Q1 button
+  document.getElementById("d12Q1").disabled = true;
   q1AttackButton.disabled = true;
   q1DefendButton.disabled = true;
   q1HealButton.disabled = true;
@@ -220,8 +220,8 @@ function restartGame() {
 
 // Continue Game function
 function continueGame() {
-  // Enable the d12 button
-  document.getElementById("d12").disabled = false;
+  // Enable the d12Q1 button
+  document.getElementById("d12Q1").disabled = false;
   continueButton.disabled = true;
   d20Result.disabled = true;
 }
@@ -229,7 +229,7 @@ function continueGame() {
 //--- D12 ---// DONT FORGET Q2adh Q3adh Q4adh Q5adh !!!!!!!!
 
 //--- For Queen #1 ---//
-var d12Button = document.getElementById('d12');
+var d12Button = document.getElementById('d12Q1');
 var d12Result = document.getElementById('d12Result');
 var q1AttackButton = document.querySelector('.Q1a');
 var q1DefendButton = document.querySelector('.Q1d');
