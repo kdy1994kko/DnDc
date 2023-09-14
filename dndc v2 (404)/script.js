@@ -260,14 +260,46 @@ function rollD12() {
   } else {
     q1HealButton.disabled = true;
   }
+
+  // Check if d12Q1 is clicked and disable it
+  document.getElementById('d12Q1').onclick = function() {
+    this.disabled = true;
+  };
+
+  // Check if Q1a, Q1d, or Q1h is clicked and enable d12Q2, then disable Q1a, Q1d, and Q1h
+  document.getElementById('Q1a').onclick = function() {
+    document.getElementById('d12Q2').disabled = false;
+    this.disabled = true;
+    document.getElementById('Q1d').disabled = true;
+    document.getElementById('Q1h').disabled = true;
+  };
+
+  document.getElementById('Q1d').onclick = function() {
+    document.getElementById('d12Q2').disabled = false;
+    this.disabled = true;
+    document.getElementById('Q1a').disabled = true;
+    document.getElementById('Q1h').disabled = true;
+  };
+
+  document.getElementById('Q1h').onclick = function() {
+    document.getElementById('d12Q2').disabled = false;
+    this.disabled = true;
+    document.getElementById('Q1a').disabled = true;
+    document.getElementById('Q1d').disabled = true;
+  };
+
 };
 
 //--- For Queen #2 ---//
 var d12Q2Button = document.getElementById('d12Q2');
-// var d12Result = document.getElementById('d12Result');
+var d12Q2Result = document.getElementById('d12Q2Result');
 var q2AttackButton = document.querySelector('.Q2a');
 var q2DefendButton = document.querySelector('.Q2d');
 var q2HealButton = document.querySelector('.Q2h');
+
+// COPY For Queen #1 ABOVE. . 
+// MODIFY && add that to For Queen #2
+
 //--- For Queen #3 ---// 
 var d12Q3Button = document.getElementById('d12Q3');
 // var d12Result = document.getElementById('d12Result');
@@ -286,6 +318,10 @@ var d12Q5Button = document.getElementById('d12Q5');
 var q5AttackButton = document.querySelector('.Q5a');
 var q5DefendButton = document.querySelector('.Q5d');
 var q5HealButton = document.querySelector('.Q5h');
+
+
+
+
 
 //--- D10 ---//
 function rollD10() {
@@ -325,9 +361,8 @@ function rollD5() {
 
 //--- To Do List ---//
 
-// LINE 239 in JS *******
-// where do i add if d12Q1 is clicked then disable d12Q1 
-// where do i add if Q1a Q1d Q1h is clicked then enable d12Q2 then disable Q1a Q1d Q1h
+// LINE 264 in JS ******* 
+// where do i add if Q1a Q1d Q1h is onclick then enable d12Q2 then disable Q1a Q1d Q1h
  
 // if Attack, Defend, Heal Buttons clicked go to next queens turn
 // attack = QueenTypeDiceResult + d20 result + Queen #
