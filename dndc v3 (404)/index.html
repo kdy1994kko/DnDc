@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>DnDc</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+  <h1>DnDc</h1>
+  <div id="game">
+    <div id="diceRoller">
+      
+      <div class="diceArea">
+        <button class="d20" onclick="rollD20()" id="d20">Roll D20</button>
+        <p id="d20Result"></p>
+      </div> 
+      
+      <div class="diceArea">
+        <button class="d10" onclick="rollD10()" disabled id="d10">Roll D10</button>
+        <p id="d10Result"></p>
+      </div>
+  
+      <div class="diceArea">
+        <button class="d8" onclick="rollD8()" disabled id="d8">Roll D8</button>
+        <p id="d8Result"></p>
+      </div>
+  
+      <div class="diceArea">
+        <button class="d6" onclick="rollD6()" disabled id="d6">Roll D6</button>
+        <p id="d6Result"></p>
+      </div>
+  
+      <div class="diceArea">
+        <button class="d4" onclick="rollD4()" disabled id="d4">Roll D4</button>
+        <p id="d4Result"></p>
+      </div>
+    </div>
+
+    <div class="diceArea">
+      <button class="Queen" onclick="rollD5()" disabled id="Queen">Attack Queen</button>
+      <p id="QueenResult"></p>
+    </div>
+  </div>
+
+    <div id="queensArea">
+      <div class="queen">
+        <p id="queenOne">Roll D20 (1x) to Select Queen #1</p>
+        <div class="healthBar" id="queenOneHealth">
+          <span id="queenOneHealthPercentage"></span>
+        </div>
+        <button class="Q1a" id="Q1a" onclick="attackActions()" disabled>Attack</button>
+        <button class="Q1d" id="Q1d" onclick="defendActions()" disabled>Defend</button>
+        <button class="Q1h" id="Q1h" onclick="healActions()" disabled>Heal</button>
+        <div class="diceArea">
+          <button class="d12" id="d12Q1" onclick="rollD12()" disabled>Roll D12</button>
+          <p id="d12Result"></p>
+        </div>
+      </div>
+
+      <div class="queen">
+        <p id="queenTwo">Roll D20 (2x) to Select Queen #2</p>
+        <div class="healthBar" id="queenTwoHealth">
+          <span id="queenTwoHealthPercentage"></span>
+        </div>
+        <button class="Q2a" id="Q2a" onclick="attackActions()" disabled>Attack</button>
+        <button class="Q2d" id="Q2d" onclick="defendActions()" disabled>Defend</button>
+        <button class="Q2h" id="Q2h" onclick="healActions()" disabled>Heal</button>        
+        <div class="diceArea">
+          <button class="d12" id="d12Q2" onclick="rollD12()" disabled>Roll D12</button>
+          <p id="d12Q2Result"></p>
+        </div>
+      </div>
+      
+      <div class="queen">
+        <p id="queenThree">Roll D20 (3x) to Select Queen #3</p>
+        <div class="healthBar" id="queenThreeHealth">
+          <span id="queenThreeHealthPercentage"></span>
+        </div>
+        <button class="Q3a" id="Q3a" onclick="attackActions()" disabled>Attack</button>
+        <button class="Q3d" id="Q3d" onclick="defendActions()" disabled>Defend</button>
+        <button class="Q3h" id="Q3h" onclick="healActions()" disabled>Heal</button>      
+        <div class="diceArea">
+          <button class="d12" id="d12Q3" onclick="rollD12()" disabled>Roll D12</button>
+          <p id="d12Result"></p>
+        </div>
+      </div>
+  
+      <div class="queen">
+        <p id="queenFour">Roll D20 (4x) to Select Queen #4</p>
+        <div class="healthBar" id="queenFourHealth">
+          <span id="queenFourHealthPercentage"></span>
+        </div>
+        <button class="Q4a" id="Q4a" onclick="attackActions()" disabled>Attack</button>
+        <button class="Q4d" id="Q4d" onclick="defendActions()" disabled>Defend</button>
+        <button class="Q4h" id="Q4h" onclick="healActions()" disabled>Heal</button>        
+        <div class="diceArea"> 
+          <button class="d12" id="d12Q4" onclick="rollD12()" disabled>Roll D12</button>
+          <p id="d12Result"></p>
+        </div>
+      </div>      
+        
+      <div class="queen">
+        <p id="queenFive"> Roll D20 (5x) to Select Queen #5</p>
+        <div class="healthBar" id="queenFiveHealth">
+          <span id="queenFiveHealthPercentage"></span>
+        </div>
+        <button class="Q5a" id="Q5a" onclick="attackActions()" disabled>Attack</button>
+        <button class="Q5d" id="Q5d" onclick="defendActions()" disabled>Defend</button>
+        <button class="Q5h" id="Q5h" onclick="healActions()" disabled>Heal</button>      
+        <div class="diceArea">
+          <button class="d12" id="d12Q5" onclick="rollD12()" disabled>Roll D12</button>
+          <p id="d12Result"></p>
+        </div>
+      </div>              
+    </div>
+    
+    <!-- Restart Game Button -->
+    <div id="restartButtonArea">
+      <button id="restartButton" onclick="restartGame()">Restart</button>
+    </div>
+    <!-- Continue Game Button -->
+    <div id="continueButtonArea">
+      <button id="continueButton" onclick="continueGame()" disabled>Continue To Fight</button>
+    </div>
+  </div>
+  
+  <script src="script.js"></script>
+</body>
+</html>

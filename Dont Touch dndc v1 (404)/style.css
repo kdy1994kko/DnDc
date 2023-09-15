@@ -1,0 +1,59 @@
+body {
+  background-image: url("https://w0.peakpx.com/wallpaper/47/692/HD-wallpaper-purple-flower-abstract-background-purple-floral-shine-stars.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: black;
+}
+
+#queenOne, #queenTwo, #queenThree, #queenFour, #queenFive {
+  color: blueviolet;
+}
+
+#d20Result, #d12Result, #d10Result, #d8Result, #d6Result, #d4Result {
+  color: rgba(0, 0, 255, 0.875);
+}
+
+#diceRoller {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.diceArea {
+  margin: 10px;
+  text-align: center;
+}
+ 
+button {
+  font-size: 16px;
+  padding: 6px 12px;
+  border-radius: 4px;
+}
+
+p {
+  font-size: 20px;
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+.queen {
+  display: flex;
+  align-items: center;
+}
+
+.healthBar {
+  position: relative;
+  width: 100px;
+  height: 20px;
+  background-color: green;
+  margin-left: 10px;
+}
+
+.healthBar span {
+  position: absolute; 
+  left: 0; 
+  top: 0; 
+  padding: 3px; 
+  font-size: 14px; 
+  color: black; 
+}
